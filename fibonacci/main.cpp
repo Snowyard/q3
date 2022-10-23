@@ -10,19 +10,36 @@ int main() {
     cout << "********" << endl;
     cout << "*************" << endl;
     
-    fibonacci(5);
+    int total = 0, term = 1, i = 1;
+    
+    while(fibonacci(i) < 1000000000) {
+        
+        int number = fibonacci(i);
+        cout << "Term" << setw(3) << term << ": " << setw(9) << number << endl;
+        
+        i++;
+        term++;
+        total += number;
+        
+    }
+    
+    cout << "*********************" << endl;
+    cout << "Sum of the 44 terms:" << setw(11) << total << endl;
+    cout << "**********************************" << endl;
     
     return 0;
 }
 
 int fibonacci(int i) {
     
-    cout << "Term   " << i << ":" << setw(10) << fibonacci(i-1) + fibonacci(i-2);    
-    
-    if (i < 2)
-        return i;
+    if (i == 1)
+        return 1;
+        
+    else if (i == 2)
+        return 1;
+        
     else
-        return fibonacci((i-1)+(i-2));
+        return (fibonacci(i-1) + fibonacci(i-2));
         
 }
 
